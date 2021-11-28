@@ -1,9 +1,11 @@
 // code to build and initialize DB goes here
 const { toComputedKey } = require('@babel/types');
 const {
-  client
-  // other db methods 
+  client,
+  users
 } = require('./index');
+
+const { createUser } = require("./users")
 
 async function buildTables() {
   try {
