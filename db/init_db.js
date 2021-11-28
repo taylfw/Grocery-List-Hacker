@@ -41,23 +41,24 @@ async function buildTables() {
       );
     `);
 
-    await client.query(`
-      CREATE TABLE recipes (
-        id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL,
-        description TEXT varchar(255) NOT NULL,
-        ingredients ARRAY,
-        count INTEGER
-      );
-    `);
+    // await client.query(`
+    //   CREATE TABLE recipes (
+    //     id SERIAL PRIMARY KEY,
+    //     name varchar(255) UNIQUE NOT NULL,
+    //     description TEXT varchar(255) NOT NULL,
+    //     ingredients ARRAY,
+    //     count INTEGER
+    //   );
+    // `);
 
-    console.log("Finished creating recipe table!")
+    // console.log("Finished creating recipe table!")
       } catch (error) {
         console.error("Error building tables!")
         
       }
     }
-
+    await dropTables();
+    await createTables();
   } catch (error) {
     throw error;
   }
@@ -69,13 +70,14 @@ async function populateInitialData() {
     async function createInitialUsers() {
       console.log("Starting to create users...");
       try {
+        
         const usersToCreate = [
           { username: "Frank", password: "PassTheBeans", admin: true },
           { username: "Colleen", password: "Welcome123", admin: false },
         ];
-
+        
         const users = await Promise.all(usersToCreate.map(createUser));
-
+        
         console.log("Users created:");
         console.log(users);
         console.log("Finished creating users!");
