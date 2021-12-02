@@ -1,0 +1,63 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: rgb(101, 145, 80);
+  box-shadow: 0 2px 8px greenyellow;
+  border: 5px solid rgb(78, 116, 56);
+  width: 28%;
+  margin: 28px;
+}
+
+.register-interface-main {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: rgb(101, 145, 80);
+  box-shadow: 0 2px 8px greenyellow;
+  border: 5px solid rgb(78, 116, 56);
+  width: 33%;
+  margin: 28px;
+}
+
+.register-interface-button {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 143, 0);
+  padding: 8px;
+  font-family: monospace;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(39, 73, 66);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+  height: 30px;
+  width: 60px;
+}
+.register-interface-button:hover {
+  background-color: rgb(175, 152, 20);
+  color: rgb(55, 39, 73);
+}
+
+label {
+  color: greenyellow;
+  font-family: monospace;
+}
+
+.register-input {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+  border: 5px solid rgb(78, 116, 56);
+  border-radius: 5%;
+}
+input {
+  display: flex;
+  justify-content: space-around;
+}

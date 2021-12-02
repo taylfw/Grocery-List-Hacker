@@ -1,0 +1,11 @@
+.title {
+  display: flex;
+  color: greenyellow;
+  font-family: monospace;
+}
+
+.title-container {
+  display: flex;
+  margin-left: 12px;
+  margin-right: 12px;
+}

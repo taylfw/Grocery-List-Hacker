@@ -1,0 +1,26 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  /* background: chartreuse; */
+  flex-direction: row;
+  height: 150px;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 143, 0);
+  padding: 8px;
+  font-family: monospace;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(39, 73, 66);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+  height: 30px;
+  width: 75px;
+}
+.nav-button:hover {
+  background-color: greenyellow;
+  color: rgb(119, 0, 255);
+}

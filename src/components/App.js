@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from 'react';
-
-import {
-  getSomething
-} from '../api';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { getToken } from "../auth";
+import { Register, Login, Navbar } from "./";
 
 const App = () => {
-  const [message, setMessage] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  function isUserLoggedIn() {
+    const token = getToken();
 
+    if (token) {
+      setLoggedIn(true);
+    }
+  }
   useEffect(() => {
-    getSomething()
-      .then(response => {
-        setMessage(response.message);
-      })
-      .catch(error => {
-        setMessage(error.message);
-      });
-  });
+    isUserLoggedIn();
+  }, []);
 
   return (
-    <div className="App">
-      <h1>Hello, World!</h1>
-      <h2>{ message }</h2>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

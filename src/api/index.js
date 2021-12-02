@@ -26,3 +26,14 @@ export async function registerUser(username, password, admin) {
     throw error;
   }
 }
+
+export async function getUserByUsername(username) {
+  try {
+    const { data } = await axios.post(`${BASE}/users`, {
+      username,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

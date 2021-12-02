@@ -1,10 +1,11 @@
 // Connect to DB
-const { Client } = require('pg');
-const DB_NAME = 'GroceryListHacker'
-const DB_URL = process.env.DATABASE_URL || `postgres://postgres@localhost:5432/${DB_NAME}`;
+const { Client } = require("pg");
+const DB_NAME = "grocerylisthacker";
+const DB_URL =
+  process.env.DATABASE_URL || `postgres://postgres@localhost:5432/${DB_NAME}`;
 const client = new Client({
   connectionString: DB_URL,
-ssl:
+  ssl:
     process.env.NODE_ENV === "production"
       ? { rejectUnauthorized: false }
       : undefined,
@@ -16,4 +17,4 @@ ssl:
 module.exports = {
   client,
   // db methods
-}
+};
