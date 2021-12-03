@@ -38,49 +38,47 @@ async function getRecipe({ name }) {
   }
 }
 
-async function getUserById(id) {
+async function getRecipeById(id) {
   try {
     const {
-      rows: [user],
+      rows: [recipe],
     } = await client.query(
       `
-    SELECT * FROM users
+    SELECT * FROM recipes
     WHERE id=$1;
     `,
       [id]
     );
 
-    delete user.password;
-
-    return user;
+    return recipe;
   } catch (error) {
     throw error;
   }
 }
 
-async function getUserByUsername(username) {
+async function getRecipeByRecipename(name) {
   try {
     const { rows } = await client.query(
       `
-    SELECT * FROM users
-    WHERE username=$1;
+    SELECT * FROM recipes
+    WHERE name=$1;
     `,
-      [username]
+      [name]
     );
     if (!rows || !rows.length) {
       return null;
     }
 
-    const [user] = rows;
-    return user;
+    const [name] = rows;
+    return name;
   } catch (error) {
     throw error;
   }
 }
 
 module.exports = {
-  createUser,
-  getUser,
-  getUserById,
-  getUserByUsername,
+  createRecipe,
+  getRecipe,
+  getRecipeById,
+  getRecipeByRecipename,
 };

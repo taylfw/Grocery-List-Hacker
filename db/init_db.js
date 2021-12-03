@@ -3,6 +3,7 @@ const { toComputedKey } = require("@babel/types");
 const { client, users } = require("./index");
 
 const { createUser } = require("./users");
+const { createRecipe } = require("./recipes");
 
 async function buildTables() {
   try {
@@ -98,13 +99,13 @@ async function populateInitialData() {
             ingredients: [
               "Ground beef",
               "Tortilla chips",
-              "Blended Shreded Cheese",
+              "Blended Shredded Cheese",
             ],
             count: 1,
           },
         ];
 
-        const recipes = await Promise.all(recipesToCreate.map(createUser));
+        const recipes = await Promise.all(recipesToCreate.map(createRecipe));
 
         console.log("recipes created:");
         console.log(recipes);
@@ -114,6 +115,7 @@ async function populateInitialData() {
       }
     }
 
+    await createInitialRecipes();
     await createInitialUsers();
   } catch (error) {
     throw error;
