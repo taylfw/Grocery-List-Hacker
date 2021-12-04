@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import { loginUser } from "../api";
 import { storeToken, storeUser } from "../auth";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Login = ({ setLoggedIn }) => {
   const [password, setPassword] = useState("");
