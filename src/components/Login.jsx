@@ -16,14 +16,13 @@ const Login = ({ setLoggedIn }) => {
         <form
           id="login"
           onSubmit={async (event) => {
-            event.preventDefault();
+            // event.preventDefault();
 
             try {
               const { token, user } = await loginUser(username, password);
               storeToken(token);
               storeUser(user.username);
               setLoggedIn(true);
-
               setUsername("");
               setPassword("");
               setError("");
@@ -60,7 +59,7 @@ const Login = ({ setLoggedIn }) => {
             ></input>
           </fieldset>
 
-          <button className="login-interface-button" path="/">
+          <button className="login-interface-button" to="/my-info">
             Login!
           </button>
           {error && <p>{error.response}</p>}

@@ -37,3 +37,38 @@ export async function getUserByUsername(username) {
     throw error;
   }
 }
+
+export async function getRecipes() {
+  try {
+    const { data } = await axios.get(`${BASE}/recipes`);
+    console.log(data, "From API");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function createRecipe({ name, description, ingredient, count }) {
+  try {
+    const { data } = await axios.post(`${BASE}/recipes`, {
+      name,
+      description,
+      ingredient,
+      count,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getRecipeById(id) {
+  try {
+    const { data } = await axios.post(`${BASE}/recipes`, {
+      id,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

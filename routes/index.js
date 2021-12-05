@@ -50,4 +50,7 @@ apiRouter.use((req, res, next) => {
 const usersRouter = require("./users");
 apiRouter.use("/users", usersRouter);
 
+const recipeRouter = require("./recipes");
+apiRouter.use("/recipes", recipeRouter);
+
 module.exports = apiRouter;

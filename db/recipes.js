@@ -20,19 +20,15 @@ async function createRecipe({ name, description, ingredients, count }) {
   }
 }
 
-async function getRecipe({ name }) {
+async function getRecipes() {
   try {
-    const {
-      rows: [name],
-    } = await client.query(
+    const { rows } = await client.query(
       `
-    SELECT * FROM recipes
-    WHERE name=$1;
-    `,
-      [name]
+    SELECT * FROM recipes;
+    `
     );
 
-    return name;
+    return rows;
   } catch (error) {
     throw error;
   }
@@ -78,7 +74,7 @@ async function getRecipeByRecipename(name) {
 
 module.exports = {
   createRecipe,
-  getRecipe,
+  getRecipes,
   getRecipeById,
   getRecipeByRecipename,
 };

@@ -1,0 +1,14 @@
+.list-maker-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+  justify-self: center;
+}
+.sub-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
