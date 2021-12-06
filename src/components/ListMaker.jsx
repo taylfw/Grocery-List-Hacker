@@ -6,7 +6,7 @@ import { List } from ".";
 const ListMaker = ({ allRecipes }) => {
   return (
     <div className="list-maker-container">
-      <div className="title">
+      <div className="list-maker-title">
         <h1>Choose recipes to create a list!</h1>
       </div>
       <div className="sub-container">

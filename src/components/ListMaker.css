@@ -2,13 +2,28 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border: 2px solid black;
+  margin: 8px;
 }
-.title {
+.list-maker-title {
   display: flex;
   justify-self: center;
+  border: 2px solid black;
+  margin: 8px;
 }
 .sub-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border: 2px solid black;
+  margin: 8px;
+}
+.list-container {
+  border: 3px solid black;
+  margin: 8px;
+}
+
+.recipe-container {
+  border: 3px solid black;
+  margin: 8px;
 }

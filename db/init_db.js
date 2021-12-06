@@ -4,6 +4,7 @@ const { client, users } = require("./index");
 
 const { createUser } = require("./users");
 const { createRecipe } = require("./recipes");
+const { createIngredients } = require("./ingredients");
 
 async function buildTables() {
   try {
@@ -15,6 +16,7 @@ async function buildTables() {
       // drop all tables, in the correct order
       try {
         await client.query(`
+      DROP TABLE IF EXISTS ingredients;
       DROP TABLE IF EXISTS recipes;
       DROP TABLE IF EXISTS users;
       `);
@@ -46,6 +48,14 @@ async function buildTables() {
         description TEXT NOT NULL,
         ingredients TEXT ARRAY,
         count INTEGER
+      );
+    `);
+
+        await client.query(`
+      CREATE TABLE ingredients (
+        id SERIAL PRIMARY KEY,
+        name varchar(255) UNIQUE NOT NULL,
+        type TEXT NOT NULL
       );
     `);
 
@@ -115,6 +125,51 @@ async function populateInitialData() {
       }
     }
 
+    async function createInitialIngredients() {
+      try {
+        const ingredientsToCreate = [
+          {
+            name: "GF Pasta",
+            type: "Shelf Item",
+          },
+          {
+            name: "Marinara Suace",
+            type: "Shelf Item",
+          },
+          {
+            name: "chicken suasage",
+            type: "poultry",
+          },
+          {
+            name: "Ground Beef",
+            type: "Beef",
+          },
+          {
+            name: "Tortilla Chips",
+            type: "Shelf Item",
+          },
+          {
+            name: "Blended Shredded Cheese",
+            type: "Dairy",
+          },
+          {
+            name: "Kale",
+            type: "Produce",
+          },
+        ];
+
+        const ingredients = await Promise.all(
+          ingredientsToCreate.map(createIngredients)
+        );
+
+        console.log("ingredients created:");
+        console.log(ingredients);
+        console.log("Finished creating ingredients!");
+      } catch (error) {
+        console.error("Error creating ingredients!");
+      }
+    }
+    await createInitialIngredients();
     await createInitialRecipes();
     await createInitialUsers();
   } catch (error) {
