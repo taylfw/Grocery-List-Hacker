@@ -3,8 +3,8 @@ import "./List.css";
 
 const List = () => {
   return (
-    <div className="list-container">
-      <h1 className="list">Your List</h1>
+    <div>
+      <h1>Your List</h1>
     </div>
   );
 };

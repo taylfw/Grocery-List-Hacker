@@ -72,3 +72,13 @@ export async function getRecipeById(id) {
     throw error;
   }
 }
+
+export async function getIngredients() {
+  try {
+    const { data } = await axios.get(`${BASE}/ingredients`);
+    console.log(data, "IngredientsFrom API");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { getRecipes } from "../api";
+import { getRecipes, getIngredients } from "../api";
 import { getToken } from "../auth";
 import { Register, Login, Navbar, List } from "./";
 import ListMaker from "./ListMaker";
@@ -10,6 +10,7 @@ import SingleRecipe from "./SingleRecipe";
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [allRecipes, setAllRecipes] = useState([]);
+  const [allIngredients, setAllIngredients] = useState([]);
   function isUserLoggedIn() {
     const token = getToken();
 
@@ -23,9 +24,16 @@ const App = () => {
     setAllRecipes(data);
   };
 
+  const handleIngredients = async () => {
+    const data = await getIngredients();
+    setAllIngredients(data);
+    console.log(data, "from ingredients handler");
+  };
+
   useEffect(() => {
     handleRecipes();
     isUserLoggedIn();
+    handleIngredients();
     console.log(allRecipes, "From UseEf");
   }, []);
 
@@ -41,7 +49,7 @@ const App = () => {
         </Route>
         <Route path="/my-info"></Route>
         <Route path="/list-maker">
-          <ListMaker allRecipes={allRecipes} />
+          <ListMaker allRecipes={allRecipes} allIngredients={allIngredients} />
         </Route>
         <Route path="/single-product/:id">
           {/* <SingleRecipe allRecipes={allRecipes} /> */}

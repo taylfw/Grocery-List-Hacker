@@ -137,7 +137,7 @@ async function populateInitialData() {
             type: "Shelf Item",
           },
           {
-            name: "chicken suasage",
+            name: "chicken sausage",
             type: "poultry",
           },
           {
