@@ -100,15 +100,15 @@ async function populateInitialData() {
           {
             name: "Gluten Free Pasta",
             description: "A meal for hungry people",
-            ingredients: ["GF Pasta", "marinara sauce", "chicken suasage"],
+            ingredients: ["GF Pasta", "Marinara Sauce", "Chicken Sausage"],
             count: 1,
           },
           {
             name: "Nachos",
             description: "Some do tacos on Tuesday. Not us.",
             ingredients: [
-              "Ground beef",
-              "Tortilla chips",
+              "Ground Beef",
+              "Tortilla Chips",
               "Blended Shredded Cheese",
             ],
             count: 1,
@@ -133,11 +133,11 @@ async function populateInitialData() {
             type: "Shelf Item",
           },
           {
-            name: "Marinara Suace",
+            name: "Marinara Sauce",
             type: "Shelf Item",
           },
           {
-            name: "chicken sausage",
+            name: "Chicken Sausage",
             type: "poultry",
           },
           {

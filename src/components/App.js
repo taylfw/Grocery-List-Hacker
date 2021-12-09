@@ -27,14 +27,12 @@ const App = () => {
   const handleIngredients = async () => {
     const data = await getIngredients();
     setAllIngredients(data);
-    console.log(data, "from ingredients handler");
   };
 
   useEffect(() => {
     handleRecipes();
     isUserLoggedIn();
     handleIngredients();
-    console.log(allRecipes, "From UseEf");
   }, []);
 
   return (
@@ -51,8 +49,11 @@ const App = () => {
         <Route path="/list-maker">
           <ListMaker allRecipes={allRecipes} allIngredients={allIngredients} />
         </Route>
-        <Route path="/single-product/:id">
-          {/* <SingleRecipe allRecipes={allRecipes} /> */}
+        <Route path="/single-recipe/:id">
+          <SingleRecipe
+            allRecipes={allRecipes}
+            allIngredients={allIngredients}
+          />
         </Route>
       </div>
     </Router>

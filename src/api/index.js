@@ -41,7 +41,7 @@ export async function getUserByUsername(username) {
 export async function getRecipes() {
   try {
     const { data } = await axios.get(`${BASE}/recipes`);
-    console.log(data, "From API");
+
     return data;
   } catch (error) {
     throw error;
@@ -76,7 +76,7 @@ export async function getRecipeById(id) {
 export async function getIngredients() {
   try {
     const { data } = await axios.get(`${BASE}/ingredients`);
-    console.log(data, "IngredientsFrom API");
+
     return data;
   } catch (error) {
     throw error;

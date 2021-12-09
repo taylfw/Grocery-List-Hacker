@@ -3,18 +3,15 @@ import "./ListMaker.css";
 import Recipes from "./Recipes";
 import { List } from ".";
 
-const ListMaker = ({ allRecipes }) => {
+const ListMaker = ({ allRecipes, allIngredients }) => {
   return (
     <div className="list-maker-container">
       <div className="list-maker-title">
         <h1>Choose recipes to create a list!</h1>
       </div>
       <div className="sub-container">
-        <div className="list-container">
-          <List />
-        </div>
         <div className="recipe-container">
-          <Recipes allRecipes={allRecipes} />
+          <Recipes allRecipes={allRecipes} allIngredients={allIngredients} />
         </div>
       </div>
     </div>
