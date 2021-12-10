@@ -18,7 +18,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
             Home
           </NavLink>
           <NavLink className="nav-button" to="/list-maker">
-            Lists
+            List Generator
           </NavLink>
 
           <Title />

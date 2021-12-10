@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { getRecipes, getIngredients } from "../api";
 import { getToken } from "../auth";
-import { Register, Login, Navbar, List } from "./";
+import { Register, Login, Navbar, List, Home } from "./";
 import ListMaker from "./ListMaker";
 
 import SingleRecipe from "./SingleRecipe";
@@ -39,6 +39,9 @@ const App = () => {
     <Router>
       <div className="App">
         <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>

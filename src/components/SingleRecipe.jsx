@@ -7,8 +7,6 @@ const SingleRecipe = ({ allRecipes, allIngredients }) => {
   const { id } = useParams();
   const recipe = allRecipes.find((element) => element.id == id);
 
-  console.log(allIngredients);
-  console.log(recipe);
   return (
     <div className="single-recipe-main-container">
       <h1 className="single-recipe-name">{recipe.name}</h1>
@@ -16,12 +14,13 @@ const SingleRecipe = ({ allRecipes, allIngredients }) => {
       <div className="ingredient-container">
         {recipe.ingredients.map((ingredient) => {
           return allIngredients.map((ingredient2) => {
-            console.log(ingredient, ingredient2.name);
             if (ingredient === ingredient2.name) {
-              console.log(true);
-              return <SingleIngredientCard ingredient={ingredient2} />;
-            } else {
-              console.log(false);
+              return (
+                <SingleIngredientCard
+                  key={ingredient2.id}
+                  ingredient={ingredient2}
+                />
+              );
             }
           });
         })}
