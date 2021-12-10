@@ -82,3 +82,33 @@ export async function getIngredients() {
     throw error;
   }
 }
+
+export async function storeList(
+  userId,
+  ingredientArray,
+  completed,
+  historicalLists
+) {
+  try {
+    const { data } = await axios.post(`${BASE}/lists`, {
+      userId,
+      ingredientArray,
+      completed,
+      historicalLists,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function history(userId) {
+  try {
+    const { data } = await axios.post(`${BASE}/lists/history`, {
+      userId,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}

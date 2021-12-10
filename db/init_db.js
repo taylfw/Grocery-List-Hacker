@@ -59,6 +59,16 @@ async function buildTables() {
       );
     `);
 
+        await client.query(`
+    CREATE TABLE lists (
+      id SERIAL PRIMARY KEY,
+      "userId" INTEGER REFERENCES users(id),
+      "ingredientArray" INTEGER ARRAY,
+      completed BOOLEAN DEFAULT 'false',
+      "historicalList" INTEGER ARRAY
+    );
+  `);
+
         console.log("Finished creating recipe table!");
       } catch (error) {
         console.error("Error building tables!");

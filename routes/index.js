@@ -56,4 +56,7 @@ apiRouter.use("/recipes", recipeRouter);
 const ingredientRouter = require("./ingredients");
 apiRouter.use("/ingredients", ingredientRouter);
 
+const listRouter = require("./lists");
+apiRouter.use("/lists", listRouter);
+
 module.exports = apiRouter;
