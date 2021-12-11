@@ -6,7 +6,6 @@ const SingleIngredientCard = ({ ingredient }) => {
     <div>
       <h1>{ingredient.name}</h1>
       <h2>{ingredient.type}</h2>
-      <button>Add</button>
     </div>
   );
 };

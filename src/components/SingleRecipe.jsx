@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import "./SingleRecipe.css";
 import { SingleIngredientCard } from ".";
 
-const SingleRecipe = ({ allRecipes, allIngredients }) => {
+const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
   const { id } = useParams();
   const recipe = allRecipes.find((element) => element.id == id);
 
@@ -16,10 +16,25 @@ const SingleRecipe = ({ allRecipes, allIngredients }) => {
           return allIngredients.map((ingredient2) => {
             if (ingredient === ingredient2.name) {
               return (
-                <SingleIngredientCard
-                  key={ingredient2.id}
-                  ingredient={ingredient2}
-                />
+                <div>
+                  <SingleIngredientCard
+                    key={ingredient2.id}
+                    ingredient={ingredient2}
+                  />
+                  <button
+                    onClick={async (event) => {
+                      event.preventDefault();
+                      try {
+                        setList([ingredient2, ...list]);
+                        console.log(list);
+                      } catch (error) {
+                        throw error;
+                      }
+                    }}
+                  >
+                    Add
+                  </button>
+                </div>
               );
             }
           });

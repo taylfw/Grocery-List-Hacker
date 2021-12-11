@@ -18,11 +18,14 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
             Home
           </NavLink>
           <NavLink className="nav-button" to="/list-maker">
-            List Generator
+            Recipes/Ingredients
           </NavLink>
 
           <Title />
-          <NavLink className="nav-button" to="/my-info">{`${user}`}</NavLink>
+          <NavLink
+            className="nav-button"
+            to="/my-info"
+          >{`${user}'s Lists`}</NavLink>
           <NavLink
             className="nav-button"
             to="/"

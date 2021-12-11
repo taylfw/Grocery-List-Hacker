@@ -10,4 +10,4 @@ export { default as List } from "./List";
 export { default as SingleIngredientCard } from "./SingleIngredientCard";
 export { default as Ingredients } from "./Ingredients";
 export { default as Home } from "./Home";
-// export { default as SingleRecipe } from "./SingleRecipe";
+export { default as CurrentList } from "./CurrentList";

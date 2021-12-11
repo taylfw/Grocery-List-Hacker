@@ -1,0 +1,16 @@
+.home-main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blurb {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  background: rgb(101, 145, 80);
+  box-shadow: 0 2px 8px greenyellow;
+  border: 5px solid rgb(78, 116, 56);
+  width: 45%;
+  margin: 28px;
+}

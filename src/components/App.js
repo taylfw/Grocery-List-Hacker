@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { getRecipes, getIngredients } from "../api";
 import { getToken } from "../auth";
 import { Register, Login, Navbar, List, Home } from "./";
+import CurrentList from "./CurrentList";
 import ListMaker from "./ListMaker";
 
 import SingleRecipe from "./SingleRecipe";
@@ -11,6 +12,7 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [allRecipes, setAllRecipes] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
+  const [list, setList] = useState([]);
   function isUserLoggedIn() {
     const token = getToken();
 
@@ -48,7 +50,9 @@ const App = () => {
         <Route path="/register">
           <Register />
         </Route>
-        <Route path="/my-info"></Route>
+        <Route path="/my-info">
+          <CurrentList list={list} setList={setList} />
+        </Route>
         <Route path="/list-maker">
           <ListMaker allRecipes={allRecipes} allIngredients={allIngredients} />
         </Route>
@@ -56,6 +60,8 @@ const App = () => {
           <SingleRecipe
             allRecipes={allRecipes}
             allIngredients={allIngredients}
+            list={list}
+            setList={setList}
           />
         </Route>
       </div>
