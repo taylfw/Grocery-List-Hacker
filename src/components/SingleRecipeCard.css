@@ -1,0 +1,9 @@
+.single-recipe-card-main-container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+  background: rgb(101, 145, 80);
+  box-shadow: 0 2px 8px greenyellow;
+  border: 5px solid rgb(78, 116, 56);
+}

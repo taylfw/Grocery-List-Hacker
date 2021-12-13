@@ -1,0 +1,24 @@
+.single-ingredient-container {
+  display: flex;
+  justify-content: center;
+}
+
+.ingredient-container {
+  margin: 8px;
+}
+
+.single-ingredient-card {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+  background: rgb(101, 145, 80);
+  box-shadow: 0 2px 8px greenyellow;
+  border: 5px solid rgb(78, 116, 56);
+  width: 28%;
+}
+
+.ingredient-name {
+  display: flex;
+  font-size: 22px;
+}
