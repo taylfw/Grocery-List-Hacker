@@ -16,6 +16,7 @@ async function buildTables() {
       // drop all tables, in the correct order
       try {
         await client.query(`
+      DROP TABLE IF EXISTS lists;
       DROP TABLE IF EXISTS ingredients;
       DROP TABLE IF EXISTS recipes;
       DROP TABLE IF EXISTS users;
@@ -120,6 +121,36 @@ async function populateInitialData() {
               "Ground Beef",
               "Tortilla Chips",
               "Blended Shredded Cheese",
+              "Onion",
+              "Avocado",
+              "Lettuce",
+            ],
+            count: 1,
+          },
+
+          {
+            name: "Sloppy Joe's",
+            description: "A messy meal",
+            ingredients: [
+              "Ground Beef",
+              "Burger Buns",
+              "Ketchup",
+              "Brown Sugar",
+            ],
+            count: 1,
+          },
+
+          {
+            name: "Breakfast",
+            description: "The most important Meal.",
+            ingredients: [
+              "Eggs",
+              "GF Bread",
+              "Ham",
+              "Cereal",
+              "Kale",
+              "Milk",
+              "Coffee",
             ],
             count: 1,
           },
@@ -165,6 +196,52 @@ async function populateInitialData() {
           {
             name: "Kale",
             type: "Produce",
+          },
+
+          {
+            name: "Onion",
+            type: "Produce",
+          },
+          {
+            name: "Avocado",
+            type: "Produce",
+          },
+          {
+            name: "Lettuce",
+            type: "Produce",
+          },
+
+          {
+            name: "Burger Buns",
+            type: "Shelf Item",
+          },
+          {
+            name: "Ketchup",
+            type: "Shelf Item",
+          },
+          {
+            name: "Brown Sugar",
+            type: "Shelf Item",
+          },
+          {
+            name: "Eggs",
+            type: "Dairy",
+          },
+          {
+            name: "Ham",
+            type: "Deli",
+          },
+          {
+            name: "Cereal",
+            type: "Shelf Item",
+          },
+          {
+            name: "Coffee",
+            type: "Shelf Item",
+          },
+          {
+            name: "Milk",
+            type: "Dairy",
           },
         ];
 

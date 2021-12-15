@@ -1,3 +1,13 @@
+.current-title-container {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+}
+
+.current-title {
+  color: rgb(252, 143, 0);
+}
+
 .currentList-container {
   display: flex;
   justify-content: center;

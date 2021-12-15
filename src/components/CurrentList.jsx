@@ -16,7 +16,9 @@ const CurrentList = ({ setList, list }) => {
   return (
     <div className="currentList-container">
       <div className="inner-container">
-        <h1 className="current-title">Current List:</h1>
+        <div className="current-title-container">
+          <h1 className="current-title">Current List:</h1>
+        </div>
         <div className="list-cards">
           {list.map((currentIng) => {
             return <SingleIngredientCard ingredient={currentIng} />;
