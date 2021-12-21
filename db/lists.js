@@ -1,21 +1,16 @@
 const { client } = require("./index");
 
 // this one lets us store info with some dummy data
-async function updateLists(
-  userId,
-  ingredients,
-  completed,
-  currentIngredientArray
-) {
+async function updateLists(userId, currentIngredientArray) {
   try {
     const {
       rows: [list],
     } = await client.query(
       `
-        INSERT INTO lists("userId", "ingredientArray", completed, "historicalLists")
+        INSERT INTO lists("userId", "historicalLists")
         Values($1, $2, $3, $4)
                 `,
-      [userId, ingredients, completed, currentIngredientArray]
+      [userId, currentIngredientArray]
     );
     return list;
   } catch (error) {
@@ -28,7 +23,7 @@ async function getHistoryByUser(userId) {
     const { rows } = await client.query(
       `
       SELECT * FROM lists
-      WHERE "userId" = $1 AND completed = 'true'
+      WHERE "userId" = $1 
       `,
       [userId]
     );

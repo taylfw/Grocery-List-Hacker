@@ -81,6 +81,7 @@ async function getUserByUsername(username) {
     }
 
     const [user] = rows;
+    delete user.password;
     return user;
   } catch (error) {
     throw error;

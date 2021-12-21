@@ -3,16 +3,11 @@ const listRouter = express.Router();
 const { updateLists, getHistoryByUser } = require("../db/lists");
 
 listRouter.post("/", async (req, res, next) => {
-  const { userId, ingredientArray, completed, historicalLists } = req.body;
+  const { userId, historicalLists } = req.body;
 
   try {
-    if ((userId, ingredientArray, completed, historicalLists)) {
-      const addList = await updateLists(
-        userId,
-        ingredientArray,
-        completed,
-        historicalLists
-      );
+    if ((userId, historicalLists)) {
+      const addList = await updateLists(userId, historicalLists);
       res.send(addList);
     } else {
       res.send({ message: "Missing fields" });

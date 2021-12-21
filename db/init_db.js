@@ -64,9 +64,7 @@ async function buildTables() {
     CREATE TABLE lists (
       id SERIAL PRIMARY KEY,
       "userId" INTEGER REFERENCES users(id),
-      "ingredientArray" INTEGER ARRAY,
-      completed BOOLEAN DEFAULT 'false',
-      "historicalList" INTEGER ARRAY
+      "historicalLists" INTEGER ARRAY
     );
   `);
 
@@ -195,20 +193,20 @@ async function populateInitialData() {
           },
           {
             name: "Kale",
-            type: "A Produce",
+            type: 1,
           },
 
           {
             name: "Onion",
-            type: "A Produce",
+            type: 1,
           },
           {
             name: "Avocado",
-            type: "A Produce",
+            type: 1,
           },
           {
             name: "Lettuce",
-            type: "A Produce",
+            type: 1,
           },
 
           {

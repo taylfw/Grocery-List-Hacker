@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import { getRecipes, getIngredients } from "../api";
-import { getToken } from "../auth";
+import { getToken, getUser } from "../auth";
 import { Register, Login, Navbar, List, Home } from "./";
 import CurrentList from "./CurrentList";
 import ListMaker from "./ListMaker";
@@ -20,6 +21,7 @@ const App = () => {
       setLoggedIn(true);
     }
   }
+  const user = getUser();
 
   const handleRecipes = async () => {
     const data = await getRecipes();
@@ -51,7 +53,7 @@ const App = () => {
           <Register setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/my-info">
-          <CurrentList list={list} setList={setList} />
+          <CurrentList list={list} setList={setList} user={user} />
         </Route>
         <Route path="/list-maker">
           <ListMaker allRecipes={allRecipes} allIngredients={allIngredients} />

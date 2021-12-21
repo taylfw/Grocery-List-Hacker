@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Login, Register } from ".";
 import { getUser } from "../auth";
+import { getUserByUsername } from "../api";
 import { Title } from ".";
 import "./Navbar.css";
 const Navbar = ({ loggedIn, setLoggedIn }) => {
@@ -9,6 +10,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
   const [registerToggle, setRegisterToggle] = useState(false);
 
   const user = getUser();
+  
 
   return (
     <div className="header-container">

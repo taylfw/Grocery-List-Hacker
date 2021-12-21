@@ -41,6 +41,7 @@ export async function getUserByUsername(username) {
     const { data } = await axios.post(`${BASE}/users`, {
       username,
     });
+
     return data;
   } catch (error) {
     throw error;
@@ -92,17 +93,11 @@ export async function getIngredients() {
   }
 }
 
-export async function storeList(
-  userId,
-  ingredientArray,
-  completed,
-  historicalLists
-) {
+export async function storeList(userId, historicalLists) {
   try {
     const { data } = await axios.post(`${BASE}/lists`, {
       userId,
-      ingredientArray,
-      completed,
+
       historicalLists,
     });
     return data;

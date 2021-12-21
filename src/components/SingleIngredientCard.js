@@ -16,7 +16,7 @@ const SingleIngredientCard = ({ ingredient }) => {
         }}
       >
         <p className="ingredient-name">{ingredient.name}</p>
-        {/* <p className="ingredient-type">{ingredient.type}</p> */}
+        <p className="ingredient-type">{ingredient.type}</p>
         <div className="tick-container"></div>
       </button>
       <input type="checkbox"></input>

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { getUser, getUserByUsername, createUser } = require("../db/users");
 const { JWT_SECRET = "QuackBack" } = process.env;
 
-usersRouter.get("/", async (req, res, next) => {
+usersRouter.post("/", async (req, res, next) => {
   const { username } = req.body;
 
   if (!username) {

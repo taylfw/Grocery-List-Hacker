@@ -1,8 +1,9 @@
 import React from "react";
 import "./CurrentList.css";
 import { SingleIngredientCard } from ".";
+import { storeList, getUserByUsername } from "../api";
 
-const CurrentList = ({ setList, list }) => {
+const CurrentList = ({ setList, list, user }) => {
   function compare(a, b) {
     if (a.type < b.type) {
       return -1;
@@ -13,6 +14,7 @@ const CurrentList = ({ setList, list }) => {
     return 0;
   }
   list.sort(compare);
+
   return (
     <div className="currentList-container">
       <div className="inner-container">
@@ -31,7 +33,11 @@ const CurrentList = ({ setList, list }) => {
           onClick={async (event) => {
             event.preventDefault();
             try {
+              const userObj = await getUserByUsername(user);
+              console.log(user);
+              console.log(userObj);
               console.log(list);
+              await storeList(userObj.id, list);
             } catch (error) {
               throw error;
             }
