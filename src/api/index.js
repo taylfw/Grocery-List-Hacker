@@ -2,6 +2,15 @@ import axios from "axios";
 
 const BASE = "http://localhost:5000/api";
 
+export async function getUsers() {
+  try {
+    const { data } = await axios.get(`${BASE}/users`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {

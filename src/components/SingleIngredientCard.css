@@ -23,3 +23,7 @@
   display: flex;
   font-size: 22px;
 }
+
+.single-ingredient-card:focus {
+  background: rgb(252, 143, 0);
+}

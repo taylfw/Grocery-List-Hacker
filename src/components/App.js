@@ -45,10 +45,10 @@ const App = () => {
           <Home />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/register">
-          <Register />
+          <Register setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/my-info">
           <CurrentList list={list} setList={setList} />

@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
 }
-button {
+.add-button {
   display: flex;
   justify-content: center;
   color: rgb(252, 143, 0);
@@ -33,7 +33,7 @@ button {
   margin: 3px;
   width: 28%;
 }
-button:hover {
+.add-button:hover {
   background-color: greenyellow;
   color: rgb(119, 0, 255);
 }

@@ -22,7 +22,7 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
                     ingredient={ingredient2}
                   />
                   <div className="outer-button-container">
-                    <button
+                    <button className="add-button"
                       onClick={async (event) => {
                         event.preventDefault();
                         try {

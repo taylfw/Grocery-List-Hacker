@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./Register.css";
 import { registerUser } from "../api";
 import { storeToken, storeUser } from "../auth";
+import { useHistory } from "react-router-dom";
 
 const Register = ({ setLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const admin = false;
+  let history = useHistory();
 
   return (
     <div className="main-container">
@@ -18,7 +20,7 @@ const Register = ({ setLoggedIn }) => {
         <form
           id="register"
           onSubmit={async (event) => {
-            event.preventDefault();
+            // event.preventDefault();
 
             try {
               const { token, user } = await registerUser(
@@ -33,6 +35,7 @@ const Register = ({ setLoggedIn }) => {
               setUsername("");
               setPassword("");
               setError("");
+              history.push("/");
             } catch (error) {
               console.log(error.response);
               setError(error);
@@ -66,7 +69,7 @@ const Register = ({ setLoggedIn }) => {
           </fieldset>
 
           <button className="register-interface-button">Submit</button>
-          {/* {error ? <p>{error.response.data.message}</p> : null} */}
+          {error.response ? <p>{error.response.data.message}</p> : null}
         </form>
       </div>
     </div>

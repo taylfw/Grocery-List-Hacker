@@ -179,11 +179,11 @@ async function populateInitialData() {
           },
           {
             name: "Chicken Sausage",
-            type: "poultry",
+            type: "Meat: poultry",
           },
           {
             name: "Ground Beef",
-            type: "Beef",
+            type: "Meat: Beef",
           },
           {
             name: "Tortilla Chips",
@@ -195,20 +195,20 @@ async function populateInitialData() {
           },
           {
             name: "Kale",
-            type: "Produce",
+            type: "A Produce",
           },
 
           {
             name: "Onion",
-            type: "Produce",
+            type: "A Produce",
           },
           {
             name: "Avocado",
-            type: "Produce",
+            type: "A Produce",
           },
           {
             name: "Lettuce",
-            type: "Produce",
+            type: "A Produce",
           },
 
           {

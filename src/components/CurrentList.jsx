@@ -39,6 +39,7 @@ const CurrentList = ({ setList, list }) => {
         >
           Store List!
         </button>
+        <button className="current-butt">Delete Selected</button>
         <button className="current-butt">Print</button>
       </div>
     </div>
