@@ -64,7 +64,7 @@ async function buildTables() {
     CREATE TABLE lists (
       id SERIAL PRIMARY KEY,
       "userId" INTEGER REFERENCES users(id),
-      "historicalLists" INTEGER ARRAY
+      "historicalLists" text ARRAY
     );
   `);
 

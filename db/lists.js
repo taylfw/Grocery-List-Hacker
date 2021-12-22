@@ -1,19 +1,24 @@
 const { client } = require("./index");
 
-// this one lets us store info with some dummy data
-async function updateLists(userId, currentIngredientArray) {
+async function updateLists(userId, historicalLists) {
   try {
+    console.log("Sup, dawg");
+    console.log(userId, historicalLists);
     const {
       rows: [list],
     } = await client.query(
       `
         INSERT INTO lists("userId", "historicalLists")
-        Values($1, $2, $3, $4)
+        Values($1, $2);
                 `,
-      [userId, currentIngredientArray]
+      [userId, historicalLists]
     );
+    console.log("Can I get here?");
+
     return list;
   } catch (error) {
+    console.log("Am I here?");
+    console.log(error);
     throw error;
   }
 }

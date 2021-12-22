@@ -97,7 +97,6 @@ export async function storeList(userId, historicalLists) {
   try {
     const { data } = await axios.post(`${BASE}/lists`, {
       userId,
-
       historicalLists,
     });
     return data;
