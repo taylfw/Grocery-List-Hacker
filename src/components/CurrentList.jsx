@@ -34,9 +34,6 @@ const CurrentList = ({ setList, list, user }) => {
             event.preventDefault();
             try {
               const userObj = await getUserByUsername(user);
-              console.log(user);
-              console.log(userObj);
-              console.log(list);
               await storeList(userObj.id, list);
             } catch (error) {
               throw error;
@@ -45,7 +42,19 @@ const CurrentList = ({ setList, list, user }) => {
         >
           Store List!
         </button>
-        <button className="current-butt">Delete Selected</button>
+        <button
+          className="current-butt"
+          onClick={async (event) => {
+            event.preventDefault();
+            try {
+              console.log(list);
+            } catch (error) {
+              throw error;
+            }
+          }}
+        >
+          Delete Selected
+        </button>
         <button className="current-butt">Print</button>
       </div>
     </div>

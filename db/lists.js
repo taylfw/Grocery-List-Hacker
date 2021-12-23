@@ -9,15 +9,15 @@ async function updateLists(userId, historicalLists) {
     } = await client.query(
       `
         INSERT INTO lists("userId", "historicalLists")
-        Values($1, $2);
+        Values($1, $2)
+        
+       
                 `,
       [userId, historicalLists]
     );
-    console.log("Can I get here?");
 
     return list;
   } catch (error) {
-    console.log("Am I here?");
     console.log(error);
     throw error;
   }

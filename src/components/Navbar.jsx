@@ -10,7 +10,6 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
   const [registerToggle, setRegisterToggle] = useState(false);
 
   const user = getUser();
-  
 
   return (
     <div className="header-container">
@@ -41,9 +40,11 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
         </>
       ) : (
         <>
-          <NavLink className="nav-button" to="/">
-            Home
-          </NavLink>
+          <div className="login-container">
+            <NavLink className="nav-button" to="/">
+              Home
+            </NavLink>
+          </div>
 
           <Title />
           <div className="login-container">
@@ -51,10 +52,11 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
               Login
             </NavLink>
           </div>
-
-          <NavLink className="nav-button" to="/register">
-            Register
-          </NavLink>
+          <div className="login-container">
+            <NavLink className="nav-button" to="/register">
+              Register
+            </NavLink>
+          </div>
         </>
       )}
     </div>

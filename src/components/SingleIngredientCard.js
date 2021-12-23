@@ -3,23 +3,21 @@ import "./SingleIngredientCard.css";
 
 const SingleIngredientCard = ({ ingredient }) => {
   const [grabItem, setGrabItem] = useState(false);
+  const [selectItem, setSelectItem] = useState(false);
   return (
     <div className="single-ingredient-container">
       <button
-        className="single-ingredient-card"
+        className={
+          grabItem ? "single-ingredient-selected" : "single-ingredient-card"
+        }
         onClick={async (event) => {
           event.preventDefault();
-
-          console.log(`${ingredient.name} has been clicked.`);
-          await setGrabItem(true);
-          console.log(grabItem);
+          grabItem ? await setGrabItem(false) : await setGrabItem(true);
         }}
       >
         <p className="ingredient-name">{ingredient.name}</p>
-        <p className="ingredient-type">{ingredient.type}</p>
-        <div className="tick-container"></div>
+        {/* <p className="ingredient-type">{ingredient.type}</p> */}
       </button>
-      <input type="checkbox"></input>
     </div>
   );
 };

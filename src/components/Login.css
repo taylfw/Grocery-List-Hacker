@@ -22,8 +22,8 @@
   background: rgb(101, 145, 80);
   box-shadow: 0 2px 8px greenyellow;
   border: 5px solid rgb(78, 116, 56);
-  width: 33%;
-  margin: 28px;
+  /* width: 33%;
+  margin: 28px; */
 }
 
 .login-interface-button {
@@ -60,7 +60,7 @@ input {
   display: flex;
   border-radius: 5%;
   justify-content: center;
-  color: yellowgreen;
+  color: rgb(252, 143, 0);
   font-size: 18px;
-  background: rgb(54, 11, 102);
+  background: rgb(59, 59, 59);
 }
