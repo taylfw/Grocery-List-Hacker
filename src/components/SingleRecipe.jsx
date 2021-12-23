@@ -9,8 +9,12 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
 
   return (
     <div className="single-recipe-main-container">
-      <h1 className="single-recipe-name">{recipe.name}</h1>
-      <h2>{recipe.description}</h2>
+      <div className="outermost">
+        <div className="outer-title-container">
+          <h1 className="single-recipe-name">{recipe.name}</h1>
+          <h2>{recipe.description}</h2>
+        </div>
+      </div>
       <div className="ingredients-container">
         {recipe.ingredients.map((ingredient) => {
           return allIngredients.map((ingredient2) => {
@@ -22,7 +26,8 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
                     ingredient={ingredient2}
                   />
                   <div className="outer-button-container">
-                    <button className="add-button"
+                    <button
+                      className="add-button"
                       onClick={async (event) => {
                         event.preventDefault();
                         try {

@@ -3,7 +3,7 @@ import "./SingleIngredientCard.css";
 
 const SingleIngredientCard = ({ ingredient }) => {
   const [grabItem, setGrabItem] = useState(false);
-  const [selectItem, setSelectItem] = useState(false);
+
   return (
     <div className="single-ingredient-container">
       <button

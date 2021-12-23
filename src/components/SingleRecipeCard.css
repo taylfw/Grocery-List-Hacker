@@ -7,3 +7,7 @@
   box-shadow: 0 2px 8px greenyellow;
   border: 5px solid rgb(78, 116, 56);
 }
+
+.single-recipe-card-name {
+  color: rgb(50, 2, 88);
+}

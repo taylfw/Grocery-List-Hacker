@@ -14,6 +14,7 @@ const App = () => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
   const [list, setList] = useState([]);
+  
   function isUserLoggedIn() {
     const token = getToken();
 

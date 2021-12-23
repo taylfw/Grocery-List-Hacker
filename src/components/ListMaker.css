@@ -5,6 +5,12 @@
   /* border: 2px solid black; */
   margin: 8px;
 }
+.outer-title-container {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 143, 0);
+  flex-direction: column;
+}
 .list-maker-title {
   display: flex;
   justify-self: center;

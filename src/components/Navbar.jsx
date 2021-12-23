@@ -15,28 +15,35 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
     <div className="header-container">
       {loggedIn ? (
         <>
-          <NavLink className="nav-button" to="/">
-            Home
-          </NavLink>
-          <NavLink className="nav-button" to="/list-maker">
-            Recipes/Ingredients
-          </NavLink>
-
+          <div className="login-container">
+            <NavLink className="nav-button" to="/">
+              Home
+            </NavLink>
+          </div>
+          <div className="login-container">
+            <NavLink className="nav-button" to="/list-maker">
+              Recipes/Ingredients
+            </NavLink>
+          </div>
           <Title />
-          <NavLink
-            className="nav-button"
-            to="/my-info"
-          >{`${user}'s Lists`}</NavLink>
-          <NavLink
-            className="nav-button"
-            to="/"
-            onClick={() => {
-              localStorage.clear();
-              setLoggedIn(false);
-            }}
-          >
-            Log Out
-          </NavLink>
+          <div className="login-container">
+            <NavLink
+              className="nav-button"
+              to="/my-info"
+            >{`${user}'s Lists`}</NavLink>
+          </div>
+          <div className="login-container">
+            <NavLink
+              className="nav-button"
+              to="/"
+              onClick={() => {
+                localStorage.clear();
+                setLoggedIn(false);
+              }}
+            >
+              Log Out
+            </NavLink>
+          </div>
         </>
       ) : (
         <>

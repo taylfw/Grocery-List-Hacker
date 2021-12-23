@@ -48,6 +48,11 @@ const CurrentList = ({ setList, list, user }) => {
             event.preventDefault();
             try {
               console.log(list);
+              list.map((item) => {
+                if (grabItem) {
+                  console.log(item);
+                }
+              });
             } catch (error) {
               throw error;
             }
