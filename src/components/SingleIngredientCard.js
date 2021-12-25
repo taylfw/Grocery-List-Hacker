@@ -13,6 +13,12 @@ const SingleIngredientCard = ({ ingredient }) => {
         onClick={async (event) => {
           event.preventDefault();
           grabItem ? await setGrabItem(false) : await setGrabItem(true);
+
+          grabItem
+            ? await (ingredient.selected = false)
+            : await (ingredient.selected = true);
+
+          console.log(ingredient);
         }}
       >
         <p className="ingredient-name">{ingredient.name}</p>

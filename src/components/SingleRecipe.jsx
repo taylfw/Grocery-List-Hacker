@@ -32,7 +32,6 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
                         event.preventDefault();
                         try {
                           setList([ingredient2, ...list]);
-                          console.log(list);
                         } catch (error) {
                           throw error;
                         }

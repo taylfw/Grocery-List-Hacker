@@ -2,8 +2,10 @@ import React from "react";
 import "./CurrentList.css";
 import { SingleIngredientCard } from ".";
 import { storeList, getUserByUsername } from "../api";
+import { useHistory } from "react-router-dom";
 
 const CurrentList = ({ setList, list, user }) => {
+  let history = useHistory();
   function compare(a, b) {
     if (a.type < b.type) {
       return -1;
@@ -48,11 +50,16 @@ const CurrentList = ({ setList, list, user }) => {
             event.preventDefault();
             try {
               console.log(list);
-              list.map((item) => {
-                if (grabItem) {
+              await list.map((item) => {
+                if (item.selected) {
+                  let el = list.indexOf(item);
                   console.log(item);
+                  list.splice(el, 1);
+                  item.selected = false;
                 }
               });
+              history.push("/");
+              history.push("/my-info");
             } catch (error) {
               throw error;
             }
@@ -60,7 +67,19 @@ const CurrentList = ({ setList, list, user }) => {
         >
           Delete Selected
         </button>
-        <button className="current-butt">Print</button>
+        <button
+          className="current-butt"
+          onClick={async (event) => {
+            event.preventDefault();
+            try {
+              console.log(list);
+            } catch (error) {
+              throw error;
+            }
+          }}
+        >
+          Print
+        </button>
       </div>
     </div>
   );
