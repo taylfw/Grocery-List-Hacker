@@ -44,3 +44,11 @@
   background-color: greenyellow;
   color: rgb(119, 0, 255);
 }
+
+@media print {
+  .current-title-container,
+  .current-butt,
+  .header-container {
+    display: none;
+  }
+}

@@ -18,12 +18,12 @@ const CurrentList = ({ setList, list, user }) => {
   list.sort(compare);
 
   return (
-    <div className="currentList-container">
+    <div className="currentList-container" id="list-container">
       <div className="inner-container">
         <div className="current-title-container">
           <h1 className="current-title">Current List:</h1>
         </div>
-        <div className="list-cards">
+        <div className="list-cards" id="list">
           {list.map((currentIng) => {
             return <SingleIngredientCard ingredient={currentIng} />;
           })}
@@ -73,6 +73,7 @@ const CurrentList = ({ setList, list, user }) => {
             event.preventDefault();
             try {
               console.log(list);
+              print();
             } catch (error) {
               throw error;
             }
