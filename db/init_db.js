@@ -64,14 +64,14 @@ async function buildTables() {
     CREATE TABLE lists (
       id SERIAL PRIMARY KEY,
       "userId" INTEGER REFERENCES users(id),
-      "historicalLists" text ARRAY,
-      
-    );
+      "historicalLists" text ARRAY
+      );
   `);
 
         console.log("Finished creating recipe table!");
       } catch (error) {
         console.error("Error building tables!");
+        console.log(error);
         throw error;
       }
     }
