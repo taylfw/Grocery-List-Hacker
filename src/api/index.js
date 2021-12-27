@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE = "http://localhost:5000/api";
+// const BASE = "http://localhost:5000/api";
+const BASE = "https://grocerylisthacker.herokuapp.com/api";
 
 export async function getUsers() {
   try {
