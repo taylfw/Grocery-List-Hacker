@@ -20,7 +20,7 @@ const Register = ({ setLoggedIn }) => {
         <form
           id="register"
           onSubmit={async (event) => {
-            // event.preventDefault();
+            event.preventDefault();
 
             try {
               const { token, user } = await registerUser(
@@ -37,7 +37,7 @@ const Register = ({ setLoggedIn }) => {
               setError("");
               history.push("/");
             } catch (error) {
-              console.log(error.response);
+              console.log(error.response.data);
               setError(error);
             }
           }}
@@ -69,7 +69,12 @@ const Register = ({ setLoggedIn }) => {
           </fieldset>
 
           <button className="register-interface-button">Submit</button>
-          {error.response ? <p>{error.response.data.message}</p> : null}
+          {error.response ? (
+            <p>
+              {error.response.statusText}: Please make sure your pw is at least
+              8 characters long
+            </p>
+          ) : null}
         </form>
       </div>
     </div>

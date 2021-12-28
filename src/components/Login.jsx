@@ -68,7 +68,7 @@ const Login = ({ setLoggedIn }) => {
           <button className="login-interface-button" to="/my-info">
             Login!
           </button>
-          {error.response ? <p>{error.response.data.message}</p> : null}
+          {error.response ? <p>Username or Password sucks</p> : null}
         </form>
       </div>
     </div>

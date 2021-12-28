@@ -1,7 +1,8 @@
 import axios from "axios";
-
-// const BASE = "http://localhost:5000/api";
-const BASE = "https://grocerylisthacker.herokuapp.com/api";
+// Dev
+const BASE = "http://localhost:5000/api";
+// Prod
+// const BASE = "https://grocerylisthacker.herokuapp.com/api";
 
 export async function getUsers() {
   try {
@@ -33,6 +34,7 @@ export async function registerUser(username, password, admin) {
     });
     return data;
   } catch (error) {
+    console.log(error.response, "<----");
     throw error;
   }
 }
