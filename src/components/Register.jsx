@@ -37,7 +37,6 @@ const Register = ({ setLoggedIn }) => {
               setError("");
               history.push("/");
             } catch (error) {
-              console.log(error.response.data);
               setError(error);
             }
           }}

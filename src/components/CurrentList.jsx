@@ -49,11 +49,10 @@ const CurrentList = ({ setList, list, user }) => {
           onClick={async (event) => {
             event.preventDefault();
             try {
-              console.log(list);
               await list.map((item) => {
                 if (item.selected) {
                   let el = list.indexOf(item);
-                  console.log(item);
+
                   list.splice(el, 1);
                   item.selected = false;
                 }
@@ -72,7 +71,6 @@ const CurrentList = ({ setList, list, user }) => {
           onClick={async (event) => {
             event.preventDefault();
             try {
-              console.log(list);
               print();
             } catch (error) {
               throw error;

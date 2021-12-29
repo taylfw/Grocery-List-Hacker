@@ -34,7 +34,6 @@ export async function registerUser(username, password, admin) {
     });
     return data;
   } catch (error) {
-    console.log(error.response, "<----");
     throw error;
   }
 }
