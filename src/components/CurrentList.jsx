@@ -36,6 +36,7 @@ const CurrentList = ({ setList, list, user }) => {
             event.preventDefault();
             try {
               const userObj = await getUserByUsername(user);
+
               await storeList(userObj.id, list);
             } catch (error) {
               throw error;

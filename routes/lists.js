@@ -3,6 +3,7 @@ const listRouter = express.Router();
 const { updateLists, getHistoryByUser } = require("../db/lists");
 
 listRouter.post("/", async (req, res, next) => {
+  console.log(req.body, "<---req.body");
   const { userId, historicalLists } = req.body;
 
   try {

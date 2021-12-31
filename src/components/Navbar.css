@@ -1,7 +1,7 @@
 .header-container {
   display: flex;
-  justify-content: center;
-  /* background: chartreuse; */
+  justify-content: space-evenly;
+  background: rgb(101, 145, 80);
   flex-direction: row;
 }
 

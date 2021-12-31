@@ -15,7 +15,7 @@
   background: rgb(101, 145, 80);
   box-shadow: 0 2px 8px greenyellow;
   border: 5px solid rgb(78, 116, 56);
-  width: 28%;
+  width: 300px;
   padding: 5px;
 }
 
@@ -32,7 +32,7 @@
   background: rgb(252, 143, 0);
   box-shadow: 0 2px 8px rgb(255, 217, 47);
   border: 5px solid rgb(179, 107, 0);
-  width: 28%;
+  width: 300px;
   padding: 5px;
 }
 
