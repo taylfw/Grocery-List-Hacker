@@ -11,3 +11,4 @@ export { default as SingleIngredientCard } from "./SingleIngredientCard";
 export { default as Ingredients } from "./Ingredients";
 export { default as Home } from "./Home";
 export { default as CurrentList } from "./CurrentList";
+export { default as HistoricalLists } from "./HistoricalLists";

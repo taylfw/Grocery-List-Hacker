@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import "./CurrentList.css";
-import { SingleIngredientCard } from ".";
-import { storeList, getUserByUsername } from "../api";
+import { HistoricalLists, SingleIngredientCard } from ".";
+import { storeList, getUserByUsername, getHistoricalLists } from "../api";
 import { useHistory } from "react-router-dom";
+import { getUser } from "../auth";
 
 const CurrentList = ({ setList, list, user }) => {
+  const [userId, setUserId] = useState(0);
+  const [listHistory, setListHistory] = useState([]);
+  const username = getUser();
+
+  const handleUser = async () => {
+    const user = await getUserByUsername(username);
+    setUserId(user.id);
+  };
+
+  const handleHistory = async () => {
+    const oldLists = await getHistoricalLists(userId);
+    setListHistory(oldLists);
+  };
+
+  useEffect(() => {
+    handleUser();
+  }, []);
+  useEffect(() => {
+    handleHistory();
+  }, [userId]);
+
   let history = useHistory();
   function compare(a, b) {
     if (a.type < b.type) {
@@ -19,16 +41,6 @@ const CurrentList = ({ setList, list, user }) => {
 
   return (
     <div className="currentList-container" id="list-container">
-      <div className="inner-container">
-        <div className="current-title-container">
-          <h1 className="current-title">Current List:</h1>
-        </div>
-        <div className="list-cards" id="list">
-          {list.map((currentIng) => {
-            return <SingleIngredientCard ingredient={currentIng} />;
-          })}
-        </div>
-      </div>
       <div className="button-panel">
         <button
           className="current-butt"
@@ -81,6 +93,26 @@ const CurrentList = ({ setList, list, user }) => {
           Print
         </button>
       </div>
+      <div className="inner-container">
+        <div className="current-title-container">
+          <h1 className="current-title">Current List:</h1>
+        </div>
+        <div className="list-cards" id="list">
+          {list.map((currentIng) => {
+            return <SingleIngredientCard ingredient={currentIng} />;
+          })}
+        </div>
+      </div>
+      {listHistory && listHistory.length
+        ? listHistory.map((item, idx) => {
+            return (
+              <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
+                <HistoricalLists history={item} />
+                <div className="history-border"></div>
+              </Fragment>
+            );
+          })
+        : null}
     </div>
   );
 };

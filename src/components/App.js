@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { getRecipes, getIngredients } from "../api";
+import { getRecipes, getIngredients, getHistoricalLists } from "../api";
 import { getToken, getUser } from "../auth";
 import { Register, Login, Navbar, List, Home } from "./";
 import CurrentList from "./CurrentList";
@@ -14,7 +14,7 @@ const App = () => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
   const [list, setList] = useState([]);
-  
+
   function isUserLoggedIn() {
     const token = getToken();
 

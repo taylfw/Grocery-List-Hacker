@@ -12,7 +12,7 @@
 .currentList-container {
   display: flex;
   justify-content: start;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .inner-container {
