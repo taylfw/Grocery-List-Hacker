@@ -63,8 +63,9 @@ async function buildTables() {
         await client.query(`
     CREATE TABLE lists (
       id SERIAL PRIMARY KEY,
+      date TEXT,
       "userId" INTEGER REFERENCES users(id),
-      "historicalLists" text ARRAY
+      "historicalLists" TEXT ARRAY
       );
   `);
 

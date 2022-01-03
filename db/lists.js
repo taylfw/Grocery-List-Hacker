@@ -1,19 +1,19 @@
 const { client } = require("./index");
 
-async function updateLists(userId, historicalLists) {
+async function updateLists(date, userId, historicalLists) {
   try {
     console.log("Sup, dawg");
-    console.log(userId, historicalLists);
+    console.log(date, userId, historicalLists);
     const {
       rows: [list],
     } = await client.query(
       `
-        INSERT INTO lists("userId", "historicalLists")
-        Values($1, $2)
+        INSERT INTO lists("date", "userId", "historicalLists")
+        Values($1, $2, $3)
         
        
                 `,
-      [userId, historicalLists]
+      [date, userId, historicalLists]
     );
 
     return list;

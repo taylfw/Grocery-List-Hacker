@@ -95,11 +95,10 @@ export async function getIngredients() {
   }
 }
 
-export async function storeList(userId, historicalLists) {
+export async function storeList(date, userId, historicalLists) {
   try {
-    console.log(userId);
-    console.log(historicalLists);
     const { data } = await axios.post(`${BASE}/lists`, {
+      date,
       userId,
       historicalLists,
     });

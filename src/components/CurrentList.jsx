@@ -39,80 +39,86 @@ const CurrentList = ({ setList, list, user }) => {
   }
   list.sort(compare);
 
+  let today = new Date().toLocaleDateString();
+
   return (
-    <div className="currentList-container" id="list-container">
-      <div className="button-panel">
-        <button
-          className="current-butt"
-          onClick={async (event) => {
-            event.preventDefault();
-            try {
-              const userObj = await getUserByUsername(user);
+    <div>
+      <div className="currentList-container" id="list-container">
+        <div className="button-panel">
+          <button
+            className="current-butt"
+            onClick={async (event) => {
+              event.preventDefault();
+              try {
+                const userObj = await getUserByUsername(user);
 
-              await storeList(userObj.id, list);
-            } catch (error) {
-              throw error;
-            }
-          }}
-        >
-          Store List!
-        </button>
-        <button
-          className="current-butt"
-          onClick={async (event) => {
-            event.preventDefault();
-            try {
-              await list.map((item) => {
-                if (item.selected) {
-                  let el = list.indexOf(item);
+                await storeList(today, userObj.id, list);
+              } catch (error) {
+                throw error;
+              }
+            }}
+          >
+            Store List!
+          </button>
+          <button
+            className="current-butt"
+            onClick={async (event) => {
+              event.preventDefault();
+              try {
+                await list.map((item) => {
+                  if (item.selected) {
+                    let el = list.indexOf(item);
 
-                  list.splice(el, 1);
-                  item.selected = false;
-                }
-              });
-              history.push("/");
-              history.push("/my-info");
-            } catch (error) {
-              throw error;
-            }
-          }}
-        >
-          Delete Selected
-        </button>
-        <button
-          className="current-butt"
-          onClick={async (event) => {
-            event.preventDefault();
-            try {
-              print();
-            } catch (error) {
-              throw error;
-            }
-          }}
-        >
-          Print
-        </button>
-      </div>
-      <div className="inner-container">
-        <div className="current-title-container">
-          <h1 className="current-title">Current List:</h1>
+                    list.splice(el, 1);
+                    item.selected = false;
+                  }
+                });
+                history.push("/");
+                history.push("/my-info");
+              } catch (error) {
+                throw error;
+              }
+            }}
+          >
+            Delete Selected
+          </button>
+          <button
+            className="current-butt"
+            onClick={async (event) => {
+              event.preventDefault();
+              try {
+                print();
+              } catch (error) {
+                throw error;
+              }
+            }}
+          >
+            Print
+          </button>
         </div>
-        <div className="list-cards" id="list">
-          {list.map((currentIng) => {
-            return <SingleIngredientCard ingredient={currentIng} />;
-          })}
+        <div className="inner-container">
+          <div className="current-title-container">
+            <h1 className="current-title">Current List:</h1>
+          </div>
+          <div className="list-cards" id="list">
+            {list.map((currentIng) => {
+              return <SingleIngredientCard ingredient={currentIng} />;
+            })}
+          </div>
         </div>
       </div>
-      {listHistory && listHistory.length
-        ? listHistory.map((item, idx) => {
-            return (
-              <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
-                <HistoricalLists history={item} />
-                <div className="history-border"></div>
-              </Fragment>
-            );
-          })
-        : null}
+      <div className="list-history">
+        {listHistory && listHistory.length
+          ? listHistory.map((item, idx) => {
+              return (
+                <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
+                  <HistoricalLists history={item} />
+                  <div className="history-border"></div>
+                </Fragment>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
