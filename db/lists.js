@@ -9,10 +9,7 @@ async function updateLists(date, userId, historicalLists) {
     } = await client.query(
       `
         INSERT INTO lists("date", "userId", "historicalLists")
-        Values($1, $2, $3)
-        
-       
-                `,
+        Values($1, $2, $3)`,
       [date, userId, historicalLists]
     );
 

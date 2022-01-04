@@ -15,6 +15,12 @@
   flex-direction: row;
 }
 
+.mid-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .inner-container {
   display: flex;
   justify-content: center;
@@ -24,12 +30,13 @@
 .button-panel {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 16px;
   margin-left: 0;
   margin-top: 0;
   margin-bottom: 0;
   background: rgb(101, 145, 80);
+  height: 100vh;
 }
 
 .current-butt {
@@ -66,11 +73,19 @@
 
 .list-cards::-webkit-scrollbar-thumb {
   background-color: greenyellow;
-  outline: 1px solid slategrey;
+  outline: 1px solid rgba(112, 128, 144, 0);
 }
+
+.list-nav-butt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .list-history {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 16px;
 }
 
@@ -83,10 +98,12 @@
   }
   .list-cards {
     display: flex;
+
+    justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 300px;
-    height: 460px;
+    /* width: 300px;
+    height: 460px; */
     overflow: visible;
   }
 }

@@ -41,9 +41,11 @@ const CurrentList = ({ setList, list, user }) => {
 
   let today = new Date().toLocaleDateString();
 
+  let count = 0;
+
   return (
     <div>
-      <div className="currentList-container" id="list-container">
+      <div className="currentList-container">
         <div className="button-panel">
           <button
             className="current-butt"
@@ -96,28 +98,63 @@ const CurrentList = ({ setList, list, user }) => {
             Print
           </button>
         </div>
-        <div className="inner-container">
-          <div className="current-title-container">
-            <h1 className="current-title">Current List:</h1>
+        <div className="mid-container">
+          <div className="inner-container">
+            <div className="current-title-container">
+              <h1 className="current-title">Current List:</h1>
+            </div>
+            <div className="list-cards">
+              {list.map((currentIng) => {
+                return <SingleIngredientCard ingredient={currentIng} />;
+              })}
+            </div>
           </div>
-          <div className="list-cards" id="list">
-            {list.map((currentIng) => {
-              return <SingleIngredientCard ingredient={currentIng} />;
-            })}
+          <div className="list-history">
+            <HistoricalLists history={listHistory[count]} />
+
+            <div className="list-nav-butt">
+              <button
+                className="current-butt"
+                onClick={async (event) => {
+                  event.preventDefault();
+                  try {
+                    if (count !== 0) {
+                      count--;
+                    }
+                    console.log(listHistory[count]);
+                    history.push("/");
+                    history.push("/my-info");
+                  } catch (error) {
+                    throw error;
+                  }
+                }}
+              >
+                Back
+              </button>
+              <button
+                className="current-butt"
+                onClick={async (event) => {
+                  event.preventDefault();
+                  try {
+                    if (count !== listHistory.length) {
+                      count++;
+                      console.log(listHistory[count]);
+                    } else if (count === listHistory.length) {
+                      count = 0;
+                      console.log(listHistory[count]);
+                    }
+                    history.push("/");
+                    history.push("/my-info");
+                  } catch (error) {
+                    throw error;
+                  }
+                }}
+              >
+                Forward
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="list-history">
-        {listHistory && listHistory.length
-          ? listHistory.map((item, idx) => {
-              return (
-                <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
-                  <HistoricalLists history={item} />
-                  <div className="history-border"></div>
-                </Fragment>
-              );
-            })
-          : null}
       </div>
     </div>
   );
