@@ -4,11 +4,12 @@ import "./HistoricalLists.css";
 
 const HistoricalLists = ({ history }) => {
   console.log(history);
+
   return (
     <div className="historical-lists-container">
-      <h1 className="historical-lists">date goes here</h1>
+      <h1 className="historical-lists">Saved List</h1>
       <div className="list-cards" id="list">
-        {/* {history.map((currentIng) => {
+        {/* {historicalArr.map((currentIng) => {
           return <SingleIngredientCard ingredient={JSON.parse(currentIng)} />;
         })} */}
       </div>

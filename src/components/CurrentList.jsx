@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./CurrentList.css";
-import { HistoricalLists, SingleIngredientCard } from ".";
+import { HistoricalLists, SingleIngredientCard, HistoryButton } from ".";
 import { storeList, getUserByUsername, getHistoricalLists } from "../api";
 import { useHistory } from "react-router-dom";
 import { getUser } from "../auth";
@@ -8,7 +9,9 @@ import { getUser } from "../auth";
 const CurrentList = ({ setList, list, user }) => {
   const [userId, setUserId] = useState(0);
   const [listHistory, setListHistory] = useState([]);
+
   const username = getUser();
+  let history = useHistory();
 
   const handleUser = async () => {
     const user = await getUserByUsername(username);
@@ -27,7 +30,6 @@ const CurrentList = ({ setList, list, user }) => {
     handleHistory();
   }, [userId]);
 
-  let history = useHistory();
   function compare(a, b) {
     if (a.type < b.type) {
       return -1;
@@ -41,7 +43,16 @@ const CurrentList = ({ setList, list, user }) => {
 
   let today = new Date().toLocaleDateString();
 
-  let count = 0;
+  async function arrMaker(arr) {
+    try {
+      const newArr = arr;
+      return arr;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  arrMaker(listHistory);
 
   return (
     <div>
@@ -110,49 +121,11 @@ const CurrentList = ({ setList, list, user }) => {
             </div>
           </div>
           <div className="list-history">
-            <HistoricalLists history={listHistory[count]} />
-
-            <div className="list-nav-butt">
-              <button
-                className="current-butt"
-                onClick={async (event) => {
-                  event.preventDefault();
-                  try {
-                    if (count !== 0) {
-                      count--;
-                    }
-                    console.log(listHistory[count]);
-                    history.push("/");
-                    history.push("/my-info");
-                  } catch (error) {
-                    throw error;
-                  }
-                }}
-              >
-                Back
-              </button>
-              <button
-                className="current-butt"
-                onClick={async (event) => {
-                  event.preventDefault();
-                  try {
-                    if (count !== listHistory.length) {
-                      count++;
-                      console.log(listHistory[count]);
-                    } else if (count === listHistory.length) {
-                      count = 0;
-                      console.log(listHistory[count]);
-                    }
-                    history.push("/");
-                    history.push("/my-info");
-                  } catch (error) {
-                    throw error;
-                  }
-                }}
-              >
-                Forward
-              </button>
-            </div>
+            <Router>
+              {listHistory.map((date) => {
+                return <HistoryButton date={date.date} />;
+              })}
+            </Router>
           </div>
         </div>
       </div>

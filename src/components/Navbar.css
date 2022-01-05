@@ -1,8 +1,11 @@
 .header-container {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   background: rgb(101, 145, 80);
   flex-direction: row;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 75px;
 }
 
 .nav-button {
