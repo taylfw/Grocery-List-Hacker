@@ -7,16 +7,15 @@ const HistoryButton = ({ history }) => {
   console.log(history);
 
   return (
-    <div>
-      <h1>Frank rules</h1>
-
-      {history.map((hiz) => {
-        return (
-          <Route>
-            <button className="current-butt">{hiz.date}</button>
-          </Route>
-        );
-      })}
+    <div className="history-container">
+      <h1 className="current-title">Previous Lists:</h1>
+      <div className="history-button-panel">
+        {history.length
+          ? history.map((hiz) => {
+              return <button className="current-butt">{hiz.date}</button>;
+            })
+          : null}
+      </div>
     </div>
   );
 };

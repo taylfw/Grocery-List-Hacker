@@ -1,0 +1,12 @@
+.history-container {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-self: center;
+}
+.history-button-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
