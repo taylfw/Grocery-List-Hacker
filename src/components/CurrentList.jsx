@@ -1,3 +1,4 @@
+"use strict";
 import React, { useEffect, useState, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./CurrentList.css";
@@ -26,6 +27,7 @@ const CurrentList = ({ setList, list, user }) => {
   useEffect(() => {
     handleUser();
   }, []);
+
   useEffect(() => {
     handleHistory();
   }, [userId]);
@@ -42,17 +44,6 @@ const CurrentList = ({ setList, list, user }) => {
   list.sort(compare);
 
   let today = new Date().toLocaleDateString();
-
-  async function arrMaker(arr) {
-    try {
-      const newArr = arr;
-      return arr;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  arrMaker(listHistory);
 
   return (
     <div>
@@ -120,13 +111,11 @@ const CurrentList = ({ setList, list, user }) => {
               })}
             </div>
           </div>
-          <div className="list-history">
-            <Router>
-              {listHistory.map((date) => {
-                return <HistoryButton date={date.date} />;
-              })}
-            </Router>
-          </div>
+          <Router>
+            <div className="list-history">
+              <HistoryButton history={listHistory} />
+            </div>
+          </Router>
         </div>
       </div>
     </div>

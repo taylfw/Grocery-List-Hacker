@@ -3,14 +3,20 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./HistoryButton.css";
 
-const HistoryButton = ({ date }) => {
-  console.log(date);
+const HistoryButton = ({ history }) => {
+  console.log(history);
 
   return (
     <div>
-      <Route path="/history/:id" className="nav-button">
-        {date}
-      </Route>
+      <h1>Frank rules</h1>
+
+      {history.map((hiz) => {
+        return (
+          <Route>
+            <button className="current-butt">{hiz.date}</button>
+          </Route>
+        );
+      })}
     </div>
   );
 };
