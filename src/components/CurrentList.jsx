@@ -113,7 +113,9 @@ const CurrentList = ({ setList, list, user }) => {
           </div>
           <Router>
             <div className="list-history">
-              <HistoryButton history={listHistory} />
+              <Route>
+                <HistoryButton history={listHistory} />
+              </Route>
             </div>
           </Router>
         </div>

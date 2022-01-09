@@ -31,7 +31,7 @@
   background-color: rgb(39, 73, 66);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   margin: 3px;
-  width: 28%;
+  width: 300px;
 }
 .add-button:hover {
   background-color: greenyellow;

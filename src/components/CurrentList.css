@@ -59,6 +59,27 @@
   background-color: greenyellow;
   color: rgb(119, 0, 255);
 }
+
+#hiz-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(252, 143, 0);
+  padding: 8px;
+  font-family: monospace;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(39, 73, 66);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+  width: 150px;
+  height: 50px;
+}
+#hiz-button:hover {
+  background-color: greenyellow;
+  color: rgb(119, 0, 255);
+}
+
 .list-cards {
   width: 300px;
   height: 460px;
