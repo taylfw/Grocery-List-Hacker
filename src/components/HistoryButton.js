@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./HistoryButton.css";
 
 const HistoryButton = ({ history }) => {
+  const [active, setActive] = useState(false);
+
   return (
     <div className="history-container">
       <h1 className="current-title">Previous Lists:</h1>
@@ -18,6 +19,15 @@ const HistoryButton = ({ history }) => {
                       event.preventDefault();
 
                       try {
+                        console.log(history);
+                        history.length
+                          ? history.map((el) => {
+                              el.active = false;
+                            })
+                          : null;
+
+                        active ? (hiz.active = true) : null;
+
                         console.log(hiz);
                       } catch (error) {
                         console.log(error);

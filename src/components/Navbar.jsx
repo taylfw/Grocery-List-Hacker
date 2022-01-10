@@ -16,8 +16,8 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
       {loggedIn ? (
         <>
           <div className="login-container">
-            <NavLink className="nav-button" to="/">
-              Home
+            <NavLink className="nav-button" className="home-butt" to="/">
+              🏠️
             </NavLink>
           </div>
           <div className="login-container">
