@@ -13,3 +13,4 @@ export { default as Home } from "./Home";
 export { default as CurrentList } from "./CurrentList";
 export { default as HistoricalLists } from "./HistoricalLists";
 export { default as HistoryButton } from "./HistoryButton";
+export { default as SingleHistoryList } from "./SingleHistoryList";

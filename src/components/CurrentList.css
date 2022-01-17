@@ -106,9 +106,8 @@
 
 .list-history {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 16px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @media print {

@@ -8,7 +8,7 @@ const Recipes = ({ allRecipes }) => {
     <div className="recipes-main-container">
       {allRecipes.map((recipe) => {
         return (
-          <Fragment key={`recipes in recipes: ${recipe.id}`}>
+          <Fragment key={`recipe in recipes: ${recipe.id}`}>
             <SingleRecipeCard recipe={recipe} />
           </Fragment>
         );

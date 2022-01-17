@@ -8,5 +8,20 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  width: 320px;
+  height: 460px;
+  overflow-y: scroll;
+}
+
+.history-button-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-button-panel::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.history-button-panel::-webkit-scrollbar-thumb {
+  background-color: greenyellow;
+  outline: 1px solid rgba(112, 128, 144, 0);
 }

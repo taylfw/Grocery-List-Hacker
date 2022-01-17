@@ -2,17 +2,12 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./CurrentList.css";
-import {
-  HistoricalLists,
-  SingleIngredientCard,
-  HistoryButton,
-  SingleHistoryList,
-} from ".";
+import { HistoricalLists, SingleIngredientCard, HistoryButton } from ".";
 import { storeList, getUserByUsername, getHistoricalLists } from "../api";
 import { useHistory } from "react-router-dom";
 import { getUser } from "../auth";
 
-const CurrentList = ({ setList, list, user }) => {
+const SingleHistoryList = ({ setList, list, user }) => {
   const [userId, setUserId] = useState(0);
   const [listHistory, setListHistory] = useState([]);
   const [active, setActive] = useState(false);
@@ -131,4 +126,4 @@ const CurrentList = ({ setList, list, user }) => {
   );
 };
 
-export default CurrentList;
+export default SingleHistoryList;
