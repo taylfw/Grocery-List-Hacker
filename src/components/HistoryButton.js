@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./HistoryButton.css";
 
-const HistoryButton = ({ history, active }) => {
+const HistoryButton = ({ history, active, onRetrieval }) => {
+  console.log(history, "History prop");
+
   return (
     <div className="history-container">
       <h1 className="current-title">Previous Lists:</h1>
@@ -16,25 +18,23 @@ const HistoryButton = ({ history, active }) => {
                   to={`/history/:${hiz.id}`}
                   key={hiz.id}
                   className="current-butt"
-                  // onClick={async (event) => {
-                  //   event.preventDefault();
+                  onClick={async (event) => {
+                    event.preventDefault();
 
-                  //   try {
-                  //     console.log(history);
-                  //     history.length
-                  //       ? history.map((el) => {
-                  //           el.active = false;
-                  //         })
-                  //       : null;
+                    try {
+                      history.length
+                        ? history.map((el) => {
+                            el.active = false;
+                          })
+                        : null;
 
-                  //     active ? (hiz.active = true) : null;
-
-                  //     console.log(hiz);
-                  //   } catch (error) {
-                  //     console.log(error);
-                  //     throw error;
-                  //   }
-                  // }}
+                      active ? (hiz.active = true) : null;
+                      active ? onRetrieval(hiz) : null;
+                    } catch (error) {
+                      console.log(error);
+                      throw error;
+                    }
+                  }}
                 >
                   {hiz.date}
                 </Link>

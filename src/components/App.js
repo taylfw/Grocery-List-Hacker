@@ -21,6 +21,7 @@ const App = () => {
   const [list, setList] = useState([]);
   const [listHistory, setListHistory] = useState([]);
   const [userId, setUserId] = useState(0);
+  const [active, setActive] = useState(false);
 
   function isUserLoggedIn() {
     const token = getToken();

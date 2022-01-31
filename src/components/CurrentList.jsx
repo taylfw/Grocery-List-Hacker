@@ -20,8 +20,23 @@ const CurrentList = ({ setList, list, user }) => {
   const username = getUser();
   let history = useHistory();
 
+  const getData = (clickedData) => {
+    const oldData = {
+      ...clickedData,
+      id: Math.random().toString(),
+    };
+    console.log(oldData.historicalLists, "before");
+    list = oldData.historicalLists.map((obj) => {
+      console.log(JSON.parse(obj));
+      return JSON.parse(obj);
+    });
+
+    return setList(list);
+  };
+
   const handleIsActive = async (evt) => {
     setActive(evt.target.value);
+    console.log(evt.target, "CurrentList component");
   };
 
   const handleUser = async () => {
@@ -123,7 +138,11 @@ const CurrentList = ({ setList, list, user }) => {
           </div>
 
           <div className="list-history">
-            <HistoryButton history={listHistory} active={handleIsActive} />
+            <HistoryButton
+              history={listHistory}
+              active={handleIsActive}
+              onRetrieval={getData}
+            />
           </div>
         </div>
       </div>
