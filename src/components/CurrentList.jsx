@@ -16,6 +16,7 @@ const CurrentList = ({ setList, list, user }) => {
   const [userId, setUserId] = useState(0);
   const [listHistory, setListHistory] = useState([]);
   const [active, setActive] = useState(false);
+  const [listTitle, setListTitle] = useState("Current List");
 
   const username = getUser();
   let history = useHistory();
@@ -25,13 +26,13 @@ const CurrentList = ({ setList, list, user }) => {
       ...clickedData,
       id: Math.random().toString(),
     };
-    console.log(oldData.historicalLists, "before");
+    // console.log(oldData.historicalLists, "before");
     list = oldData.historicalLists.map((obj) => {
-      console.log(JSON.parse(obj));
+      // console.log(JSON.parse(obj));
       return JSON.parse(obj);
     });
 
-    return setList(list);
+    return setListTitle(oldData.date), setList(list);
   };
 
   const handleIsActive = async (evt) => {
@@ -128,7 +129,7 @@ const CurrentList = ({ setList, list, user }) => {
         <div className="mid-container">
           <div className="inner-container">
             <div className="current-title-container">
-              <h1 className="current-title">Current List:</h1>
+              <h1 className="current-title">{listTitle}</h1>
             </div>
             <div className="list-cards">
               {list.map((currentIng) => {

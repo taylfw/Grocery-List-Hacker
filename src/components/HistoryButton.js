@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import "./HistoryButton.css";
 
 const HistoryButton = ({ history, active, onRetrieval }) => {
-  console.log(history, "History prop");
-
   return (
     <div className="history-container">
       <h1 className="current-title">Previous Lists:</h1>
