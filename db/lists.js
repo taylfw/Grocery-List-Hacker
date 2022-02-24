@@ -2,7 +2,6 @@ const { client } = require("./index");
 
 async function updateLists(date, userId, historicalLists) {
   try {
-    console.log("Sup, dawg");
     console.log(date, userId, historicalLists);
     const {
       rows: [list],

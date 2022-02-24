@@ -36,7 +36,7 @@ recipeRouter.post("/", async (req, res, next) => {
     } else {
       next({
         name: "IncorrectCredentialsError",
-        message: "One of your fields is fucked up man!",
+        message: "One of your fields is screwed up man!",
       });
     }
   } catch ({ name, message }) {
