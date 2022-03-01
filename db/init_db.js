@@ -111,19 +111,47 @@ async function populateInitialData() {
           {
             name: "Gluten Free Pasta",
             description: "A meal for hungry people",
-            ingredients: ["GF Pasta", "Marinara Sauce", "Chicken Sausage"],
+            ingredients: [
+              {
+                iName: "GF Pasta",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Marinara Sauce",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Chicken Sausage",
+                type: "Meat: poultry",
+              },
+            ],
             count: 1,
           },
           {
             name: "Nachos",
             description: "Some do tacos on Tuesday. Not us.",
             ingredients: [
-              "Ground Beef",
-              "Tortilla Chips",
-              "Blended Shredded Cheese",
-              "Onion",
-              "Avocado",
-              "Lettuce",
+              { iName: "Ground Beef", type: "meat:beef" },
+              {
+                iName: "Tortilla Chips",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Blended Shredded Cheese",
+                type: "Dairy",
+              },
+              {
+                iName: "Onion",
+                type: 1,
+              },
+              {
+                iName: "Avocado",
+                type: 1,
+              },
+              {
+                iName: "Lettuce",
+                type: 1,
+              },
             ],
             count: 1,
           },
@@ -132,10 +160,22 @@ async function populateInitialData() {
             name: "Sloppy Joe's",
             description: "A messy meal",
             ingredients: [
-              "Ground Beef",
-              "Burger Buns",
-              "Ketchup",
-              "Brown Sugar",
+              {
+                iName: "Ground Beef",
+                type: "meat:beef",
+              },
+              {
+                iName: "Burger Buns",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Ketchup",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Brown Sugar",
+                type: "Shelf Item",
+              },
             ],
             count: 1,
           },
@@ -144,13 +184,34 @@ async function populateInitialData() {
             name: "Breakfast",
             description: "The most important Meal.",
             ingredients: [
-              "Eggs",
-              "GF Bread",
-              "Ham",
-              "Cereal",
-              "Kale",
-              "Milk",
-              "Coffee",
+              {
+                iName: "Eggs",
+                type: "Dairy",
+              },
+              {
+                iName: "GF Bread",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Ham",
+                type: "Deli",
+              },
+              {
+                iName: "Cereal",
+                type: "Shelf Item",
+              },
+              {
+                iName: "Kale",
+                type: 1,
+              },
+              {
+                iName: "Milk",
+                type: "Dairy",
+              },
+              {
+                iName: "Coffee",
+                type: "Shelf Item",
+              },
             ],
             count: 1,
           },
