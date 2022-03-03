@@ -7,10 +7,6 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
   const { id } = useParams();
   const recipe = allRecipes.find((element) => element.id == id);
 
-  console.log(recipe, "<---Recipe");
-  console.log(list, "<--- list");
-  console.log(allIngredients, "<---allIngredients");
-
   return (
     <div className="single-recipe-main-container">
       <div className="outermost">
@@ -21,10 +17,7 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
       </div>
       <div className="ingredients-container">
         {recipe.ingredients.map((ingredient) => {
-          console.log(ingredient);
           let ingredient2 = JSON.parse(ingredient);
-          console.log(ingredient2);
-
           return (
             <div className="ingredient-container">
               <SingleIngredientCard

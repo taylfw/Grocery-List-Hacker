@@ -142,15 +142,15 @@ async function populateInitialData() {
               },
               {
                 iName: "Onion",
-                type: 1,
+                type: "A Produce",
               },
               {
                 iName: "Avocado",
-                type: 1,
+                type: "A Produce",
               },
               {
                 iName: "Lettuce",
-                type: 1,
+                type: "A Produce",
               },
             ],
             count: 1,
@@ -202,7 +202,7 @@ async function populateInitialData() {
               },
               {
                 iName: "Kale",
-                type: 1,
+                type: "A Produce",
               },
               {
                 iName: "Milk",

@@ -26,9 +26,8 @@ const CurrentList = ({ setList, list, user }) => {
       ...clickedData,
       id: Math.random().toString(),
     };
-    // console.log(oldData.historicalLists, "before");
+
     list = oldData.historicalLists.map((obj) => {
-      // console.log(JSON.parse(obj));
       return JSON.parse(obj);
     });
 
@@ -67,7 +66,17 @@ const CurrentList = ({ setList, list, user }) => {
     }
     return 0;
   }
-  list.sort(compare);
+
+  console.log(list);
+
+  const handleSort = async () => {
+    const sortedList = await list.sort(compare);
+    setList(sortedList);
+  };
+
+  useEffect(() => {
+    handleSort();
+  }, []);
 
   let today = new Date().toLocaleDateString();
 
