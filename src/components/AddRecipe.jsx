@@ -1,22 +1,25 @@
 import React from "react";
 import { useState } from "react";
 import { createRecipe } from "../api";
+import "./AddRecipe.css";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [ingredient, setIngredient] = useState([]);
+  const [ingredient, setIngredient] = useState("");
   const [count, setCount] = useState(1);
 
-  async (event) => {
+  async function getUserInput(event) {
     event.preventDefault();
+
     try {
-      const data = await createRecipe({
+      const data = {
         name,
         description,
         ingredient,
         count,
-      });
+      };
+      await createRecipe(data);
       setName("");
       setDescription("");
       setIngredient([]);
@@ -24,7 +27,7 @@ const AddRecipe = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   return (
     <div className="login-interface-main">
@@ -65,14 +68,19 @@ const AddRecipe = () => {
             }}
           ></input>
           <select id="selectType">
-            <option value="1">Produce</option>
-            <option value="2">Deli</option>
-            <option value="3">Dairy</option>
+            <option value="A Produce">Produce</option>
+            <option value="Deli">Deli</option>
+            <option value="Dairy">Dairy</option>
           </select>
         </fieldset>
-        <button className="nav-button" type="submit">
-          Submit
-        </button>
+        <div className="butt-container">
+          <button className="nav-button" type="button">
+            Add ingredient
+          </button>
+          <button className="nav-button" type="submit" onClick={getUserInput}>
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

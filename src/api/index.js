@@ -62,6 +62,13 @@ export async function getRecipes() {
 
 export async function createRecipe({ name, description, ingredient, count }) {
   try {
+    console.log(
+      "Hello from the API---> ",
+      name,
+      description,
+      ingredient,
+      count
+    );
     const { data } = await axios.post(`${BASE}/recipes`, {
       name,
       description,

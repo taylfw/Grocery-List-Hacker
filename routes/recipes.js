@@ -32,6 +32,7 @@ recipeRouter.post("/", async (req, res, next) => {
       count,
     });
     if (product) {
+      console.log("Hello from the router");
       res.send(product);
     } else {
       next({
