@@ -21,7 +21,7 @@ const SingleIngredientCard = ({ ingredient }) => {
           console.log(ingredient);
         }}
       >
-        <p className="ingredient-name">{ingredient.name}</p>
+        <p className="ingredient-name">{ingredient.iName}</p>
         {/* <p className="ingredient-type">{ingredient.type}</p> */}
       </button>
     </div>

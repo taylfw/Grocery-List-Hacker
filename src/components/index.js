@@ -14,3 +14,4 @@ export { default as CurrentList } from "./CurrentList";
 export { default as HistoricalLists } from "./HistoricalLists";
 export { default as HistoryButton } from "./HistoryButton";
 export { default as SingleHistoryList } from "./SingleHistoryList";
+export { default as AddRecipe } from "./AddRecipe";

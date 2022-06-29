@@ -15,3 +15,10 @@
   width: 45%;
   margin: 28px;
 }
+
+ul {
+  padding: 20px;
+}
+li {
+  margin: 8px;
+}

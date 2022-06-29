@@ -13,6 +13,14 @@ const Home = ({ allRecipes }) => {
           This app was made to make your grocery shopping experience much
           faster!
         </p>
+        <ul>
+          <li>Choose recipes that you plan to make</li>
+          <li>Add the ingredients to your list</li>
+          <li>
+            The Combinator will order your list by type, so you don't have to
+            visit the same area of the grocery store twice!
+          </li>
+        </ul>
 
         <h3>Enjoy!</h3>
       </div>
