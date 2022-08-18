@@ -67,8 +67,6 @@ const CurrentList = ({ setList, list, user }) => {
     return 0;
   }
 
-  console.log(list);
-
   const handleSort = async () => {
     const sortedList = await list.sort(compare);
     setList(sortedList);

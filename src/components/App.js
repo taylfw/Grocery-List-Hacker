@@ -82,11 +82,9 @@ const App = () => {
         <Route path="/my-info">
           <CurrentList list={list} setList={setList} user={username} />
         </Route>
-
         <Route path="/history/:id">
           <SingleHistoryList list={list} setList={setList} user={username} />
         </Route>
-
         <Route path="/list-maker">
           <ListMaker allRecipes={allRecipes} allIngredients={allIngredients} />
         </Route>

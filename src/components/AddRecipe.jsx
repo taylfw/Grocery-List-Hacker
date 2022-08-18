@@ -22,7 +22,7 @@ const AddRecipe = () => {
       await createRecipe(data);
       setName("");
       setDescription("");
-      setIngredient([]);
+      JSON.stringify(setIngredient(""));
       setCount(1);
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ const AddRecipe = () => {
         <fieldset className="login-input">
           <label htmlFor="description">Ingredient </label>
           <input
-            id="ingredient0"
+            id="ingredient"
             type="text"
             placeholder="Enter Ingredient"
             value={ingredient}

@@ -75,6 +75,7 @@ export async function createRecipe({ name, description, ingredient, count }) {
       ingredient,
       count,
     });
+    console.log(data);
     return data;
   } catch (error) {
     throw error;
