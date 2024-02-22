@@ -1,8 +1,8 @@
 import axios from "axios";
 // Dev
-// const BASE = "http://localhost:5000/api";
+const BASE = "http://localhost:5000/api";
 // Prod
-const BASE = "https://grocerylisthacker.herokuapp.com/api";
+// const BASE = "https://grocerylisthacker.herokuapp.com/api";
 
 export async function getUsers() {
   try {
@@ -62,12 +62,20 @@ export async function getRecipes() {
 
 export async function createRecipe({ name, description, ingredient, count }) {
   try {
+    console.log(
+      "Hello from the API---> ",
+      name,
+      description,
+      ingredient,
+      count
+    );
     const { data } = await axios.post(`${BASE}/recipes`, {
       name,
       description,
       ingredient,
       count,
     });
+    console.log(data);
     return data;
   } catch (error) {
     throw error;

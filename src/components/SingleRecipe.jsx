@@ -17,33 +17,30 @@ const SingleRecipe = ({ allRecipes, allIngredients, setList, list }) => {
       </div>
       <div className="ingredients-container">
         {recipe.ingredients.map((ingredient) => {
-          return allIngredients.map((ingredient2) => {
-            if (ingredient === ingredient2.name) {
-              return (
-                <div className="ingredient-container">
-                  <SingleIngredientCard
-                    key={ingredient2.id}
-                    ingredient={ingredient2}
-                  />
-                  <div className="outer-button-container">
-                    <button
-                      className="add-button"
-                      onClick={async (event) => {
-                        event.preventDefault();
-                        try {
-                          setList([ingredient2, ...list]);
-                        } catch (error) {
-                          throw error;
-                        }
-                      }}
-                    >
-                      Add
-                    </button>
-                  </div>
-                </div>
-              );
-            }
-          });
+          let ingredient2 = JSON.parse(ingredient);
+          return (
+            <div className="ingredient-container">
+              <SingleIngredientCard
+                key={Math.random()}
+                ingredient={ingredient2}
+              />
+              <div className="outer-button-container">
+                <button
+                  className="add-button"
+                  onClick={async (event) => {
+                    event.preventDefault();
+                    try {
+                      setList([ingredient2, ...list]);
+                    } catch (error) {
+                      throw error;
+                    }
+                  }}
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>

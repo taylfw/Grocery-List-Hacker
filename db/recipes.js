@@ -2,6 +2,7 @@ const { client } = require("./index");
 
 async function createRecipe({ name, description, ingredients, count }) {
   try {
+    console.log(name, description, ingredients, count, "From DB.");
     const {
       rows: [recipe],
     } = await client.query(
@@ -14,7 +15,7 @@ async function createRecipe({ name, description, ingredients, count }) {
       [name, description, ingredients, count]
     );
 
-    return recipe.name;
+    return recipe;
   } catch (error) {
     throw error;
   }
